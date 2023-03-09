@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content%}
+    {%from "_macros.html" import render_Field%}
+
+    <div class="container">
+        <a href="index.html" class="btn btn success"><i class="icon-pencil icon-white"></i>Agregar</a>
+        <div class="row">
+            <form name="sent" action="/eliminar" id="form1" method="POST">
+                <div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 float-label-form-group controls">
+                            {{render_Field(form.id, class='form-control')}}
+                        </div>
+                    </div>    
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_Field(form.nombre, class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_Field(form.apaterno, class='form-control')}}
+                    </div>
+                </div>
+                <div class="row control-group">
+                    <div class="form-group col-xs-12 float-label-form-group controls">
+                        {{render_Field(form.email, class='form-control')}}
+                    </div>
+                </div>
+                <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+                <input type="submit" class="btn btn-danger" name="eliminar" value="Eliminar"/>
+                <a href="ABCompleto.html" class="btn btn success"><i class="icon-pencil icon-white"></i>Regresar</a>
+            </form>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
